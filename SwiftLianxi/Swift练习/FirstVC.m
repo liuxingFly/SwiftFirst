@@ -8,6 +8,8 @@
 
 #import "FirstVC.h"
 #import "Swift练习-Swift.h"
+#import "UIScreen+LJ.h"
+
 
 @interface FirstVC ()
 
@@ -19,24 +21,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.title = @"OC页面1";
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(50, 60, 100, 100)];
-    view.backgroundColor = [UIColor yellowColor];
-    [self.view addSubview:view];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    btn.frame = CGRectMake(50, UIScreen.lj_safeAreaToTop, 100, 35);
+    [btn setTitle:@"下一页" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(goSwiftVC) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(nihaoa)];
-    [self.view addGestureRecognizer:tap];
-    
-    NSString *ss;
-    [[NSUserDefaults standardUserDefaults] setObject:ss forKey:@"key"];
-    NSString *ss1 = [[NSUserDefaults standardUserDefaults] objectForKey:@"key"];
-    NSLog(@"打印：%@, %@", ss1, [ss1 class]);
+    NSLog(@"%@", self.ocStr);
     
 }
 
-- (void)nihaoa {
-    UIViewController *fff = [[ViewController alloc] init];
-    [self.navigationController pushViewController:fff animated:YES];
+- (void)goSwiftVC {
+    ThirdVC *vc = [[ThirdVC alloc] init];
+    vc.swiftStr = @"从OC页面1到swift页面2";
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 /*

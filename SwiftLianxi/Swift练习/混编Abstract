@@ -1,0 +1,11 @@
+
+1:Swift文件中使用OC类
+a:创建桥接文件, 一般命名为:工程名-Bridging-Header.h(因为系统默认创建的桥接文件就是这样命名的)
+b:检查Objective-C Brigding Header对应的路径(要是桥接文件的路径,如果桥接文件改名此处路径要对应改后的文件名字)
+c:Enable Modules(C and Objective-C) 设置为 YES
+
+2:OC文件中使用Swift类
+a:导入隐藏头文件 #import "工程名-Swift.h"
+
+
+

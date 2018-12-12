@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FirstVC : UIViewController
 
+@property (nonatomic, strong) NSString *ocStr;
+
 @end
 
 NS_ASSUME_NONNULL_END
